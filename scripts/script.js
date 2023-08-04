@@ -13,32 +13,78 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    //Convert the player's input to a capitalized string
     playerSelection = playerSelection.toLowerCase();
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
 
+    /*
+        0 = round win
+        1 = round loss
+        2 = round tie
+    */
     if(playerSelection === "Rock") {
         if(computerSelection === playerSelection) {
-            return "It's a tie! Both picked " + playerSelection + "!";
+            return 2;
         } else if(computerSelection === "Paper") {
-            return "You lose! " + computerSelection + " beats " + playerSelection + "!";
+            return 1;
         } else {
-            return "You win! " + playerSelection + " beats " + computerSelection + "!";
+            return 0;
         }
     } else if(playerSelection === "Paper") {
         if(computerSelection === playerSelection) {
-            return "It's a tie! Both picked " + playerSelection + "!";
+            return 2;
         } else if(computerSelection === "Rock") {
-            return "You win! " + playerSelection + " beats " + computerSelection + "!";
+            return 0;
         } else {
-            return "You lose! " + computerSelection + " beats " + playerSelection + "!";
+            return 1;
         }
     } else {
         if(computerSelection === playerSelection) {
-            return "It's a tie! Both picked " + playerSelection + "!";
+            return 2;
         } else if(computerSelection === "Rock") {
-            return "You lose! " + computerSelection + " beats " + playerSelection + "!";
+            return 1;
         } else {
-            return "You win! " + playerSelection + " beats " + computerSelection + "!";
+            return 0;
         }
     }
 }
+
+function game() {
+    let roundWins = 0;
+    let roundLosses = 0;
+    let roundTies = 0;
+
+    for(let round = 0; round < 5; round++) {
+        let playerSelection = prompt("Enter Rock, Paper or Scissors:");
+        let computerSelection = getComputerChoice();
+        let roundResult = playRound(playerSelection, computerSelection);
+
+        //Convert the player's input to a capitalized string
+        playerSelection = playerSelection.toLowerCase();
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+
+        switch(roundResult) {
+            case 0:
+                console.log("You win! " + playerSelection + " beats " + computerSelection + "!");
+                roundWins++;
+                break;
+            case 1:
+                console.log("You lose! " + computerSelection + " beats " + playerSelection + "!");
+                roundLosses++;
+                break;
+            default:
+                console.log("It's a tie! Both picked " + playerSelection + "!");
+                roundTies++;
+        }
+    }
+
+    if(roundWins > roundLosses) {
+        console.log("You win!\n\nWins: " + roundWins + "\nLosses: " + roundLosses + "\nTies: " + roundTies);
+    } else if(roundWins < roundLosses) {
+        console.log("You lose!\n\nWins: " + roundWins + "\nLosses: " + roundLosses + "\nTies: " + roundTies);
+    } else {
+        console.log("It's a tie!\n\nWins: " + roundWins + "\nLosses: " + roundLosses + "\nTies: " + roundTies);
+    }
+}
+
+game();
