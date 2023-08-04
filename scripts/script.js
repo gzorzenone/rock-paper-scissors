@@ -11,3 +11,34 @@ function getComputerChoice() {
             return computerChoice = "Scissors";
     }
 }
+
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+
+    if(playerSelection === "Rock") {
+        if(computerSelection === playerSelection) {
+            return "It's a tie! Both picked " + playerSelection + "!";
+        } else if(computerSelection === "Paper") {
+            return "You lose! " + computerSelection + " beats " + playerSelection + "!";
+        } else {
+            return "You win! " + playerSelection + " beats " + computerSelection + "!";
+        }
+    } else if(playerSelection === "Paper") {
+        if(computerSelection === playerSelection) {
+            return "It's a tie! Both picked " + playerSelection + "!";
+        } else if(computerSelection === "Rock") {
+            return "You win! " + playerSelection + " beats " + computerSelection + "!";
+        } else {
+            return "You lose! " + computerSelection + " beats " + playerSelection + "!";
+        }
+    } else {
+        if(computerSelection === playerSelection) {
+            return "It's a tie! Both picked " + playerSelection + "!";
+        } else if(computerSelection === "Rock") {
+            return "You lose! " + computerSelection + " beats " + playerSelection + "!";
+        } else {
+            return "You win! " + playerSelection + " beats " + computerSelection + "!";
+        }
+    }
+}
