@@ -12,10 +12,15 @@ function getComputerChoice() {
     }
 }
 
+function capitalizeString(str) {
+    str = str.toLowerCase();
+    str = str.charAt(0).toUpperCase() + str.slice(1);
+
+    return str;
+}
+
 function playRound(playerSelection, computerSelection) {
-    //Convert the player's input to a capitalized string
-    playerSelection = playerSelection.toLowerCase();
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    playerSelection = capitalizeString(playerSelection);
 
     /*
         0 = round win
@@ -59,9 +64,7 @@ function game() {
         let computerSelection = getComputerChoice();
         let roundResult = playRound(playerSelection, computerSelection);
 
-        //Convert the player's input to a capitalized string
-        playerSelection = playerSelection.toLowerCase();
-        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+        playerSelection = capitalizeString(playerSelection);
 
         switch(roundResult) {
             case 0:
