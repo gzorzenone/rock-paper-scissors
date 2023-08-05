@@ -54,6 +54,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+/*
 function game() {
     let roundWins = 0;
     let roundLosses = 0;
@@ -91,3 +92,4 @@ function game() {
 }
 
 game();
+*/
