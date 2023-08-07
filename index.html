@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js" defer></script>
 </head>
 <body>
     <div class="header">
@@ -13,18 +13,38 @@
         <div class="subtitle">Click one of the buttons below to play a round of Rock, Paper, Scissors against the computer</div>
     </div>
 
-    <div class="rps-buttons">
-        <div class="rps-button">
-            <img src="images/rock.png">
-            <button>Rock</button>
+    <div class="body">
+        <div class="rps-buttons">
+            <div class="rps-button">
+                <img src="images/rock.png">
+                <button>Rock</button>
+            </div>
+            <div class="rps-button">
+                <img src="images/paper.png">
+                <button>Paper</button>
+            </div>
+            <div class="rps-button">
+                <img src="images/scissors.png">
+                <button>Scissors</button>
+            </div>
         </div>
-        <div class="rps-button">
-            <img src="images/paper.png">
-            <button>Paper</button>
-        </div>
-        <div class="rps-button">
-            <img src="images/scissors.png">
-            <button>Scissors</button>
+    
+        <div class="rps-results">
+            <div class="results-header">SCORE</div>
+            <div class="results-container">
+                <div class="rps-result">
+                    <div class="result-header">Wins</div>
+                    <div id="wins" class="result-value"></div>
+                </div>
+                <div class="rps-result">
+                    <div class="result-header">Losses</div>
+                    <div id="losses" class="result-value"></div>
+                </div>
+                <div class="rps-result">
+                    <div class="result-header">Ties</div>
+                    <div id="ties" class="result-value"></div>
+                </div>
+            </div>
         </div>
     </div>
 
